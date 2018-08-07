@@ -1,0 +1,15 @@
+{
+  "name": "brightcove-proxy",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "devDependencies": {
+    "express": "*",
+    "path": "*",
+    "request": "*"
+  },
+  "dependencies": {
+    "google-translate-api": "^2.3.0"
+  }
+}
