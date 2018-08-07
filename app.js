@@ -8,10 +8,10 @@ var translate = require('google-translate-api');
 var port = process.env.PORT || 5000;
 
 
-app.use('/translate', function(req, res) {
+app.get('/translate', function(req, res) {
 	
-	var text = req.query.text;
-	var to = req.query.to;
+	var text = req.query.text ? req.query.text : '';
+	var to = req.query.to ? req.query.to : '';
     text = text.replace(/["']/g, "");
     to = to.replace(/["']/g, "");
 	res.header('Access-Control-Allow-Origin', '*');
@@ -24,6 +24,8 @@ app.use('/translate', function(req, res) {
 	}).catch(err => {
 	    console.error(err);
 	});
+
+
 });
 
 
