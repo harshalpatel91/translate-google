@@ -12,6 +12,8 @@ app.get('/translate', function(req, res) {
 	
 	var text = req.query.text ? req.query.text : '';
 	var to = req.query.to ? req.query.to : '';
+	var from = req.query.from ? req.query.from : '';
+    from = from.replace(/["']/g, "");
     text = text.replace(/["']/g, "");
     to = to.replace(/["']/g, "");
 	res.header('Access-Control-Allow-Origin', '*');
@@ -19,7 +21,7 @@ app.get('/translate', function(req, res) {
     res.header('Access-Control-Allow-Headers', '*');
 
 
-    translate(text, {to: to}).then(data => {
+    translate(text, {from: from, to: to}).then(data => {
     	res.send(data);
 	}).catch(err => {
 	    console.error(err);
